@@ -16,6 +16,7 @@
 <p> requests, bs4라이브러리를 활용하여 고위험군에 속하는 음식(박쥐탕, 뱀탕) 저위험군에 속하는 음식(짜장면, 제육볶음, 김치찌개)을 음식별로 100장씩 수집했다. 이후 수집된 500장의 이미지 데이터를 data폴더에 Train(60%)/validation(20%)/Test(20%) 하위 폴더들에 적재했다. </p>
 <a href="https://github.com/Tudou4161/HighRiskFood_Classification/blob/main/HCFC_crawling_data.ipynb">크롤링 소스코드 보러가기</a>
 <br />
+<br />
 
 2. 모델링
 <p> 데이터의 수가 매우 적은 편이기 때문에, 데이터를 증식시킬 필요가 있었다. 따라서 keras의 ImageDataGenerator모듈을 활용하여 데이터를 증식시켰다.
@@ -25,9 +26,11 @@
     결론적으로, 과적합은 방지할 수 있었지만 80%이상의 좋은 성능을 보여주진 못했다. 학습시킬 때부터 70% 중후반대를 유지했고, 테스트 때도 마찬가지로 70%대를 맴돌았다. </p>
 <a href="https://github.com/Tudou4161/HighRiskFood_Classification/blob/main/HRFC_Simple_CNN_72.ipynb">CNN 소스코드 보러가기</a>
 <br />
+<br />
 <p>CNN에서의 미진한 정확도를 개선하기 위해, 전이학습 알고리즘 중 하나인 VGG19를 도입했다. 미세조정(Fine-Tuning)없이 학습시킨 결과 테스트 정확도가 80-90%를 웃돌았다.
     하지만 매번 새로 학습을 시킬 때마다 정확도 추이가 최대 +-10% 를 기록할만큼 변동추이가 컸다. </p>
 <a href="https://github.com/Tudou4161/HighRiskFood_Classification/blob/main/HRFC_VGG19_Adam_84.ipynb">Non-Fine-Tuned-VGG19 소스코드 보러가기</a>
+<br />
 <br />
 <p>마지막으로, VGG19에 미세조정을 도입해서 학습을 진행했다. block5_conv1 계층부터 block5_poll 계층까지 파라미터를 재학습시켰다. 그 결과 학습 시 정확도 90%중후반, 테스트 정확도 91%를
 기록할 수 있었다.</p>
