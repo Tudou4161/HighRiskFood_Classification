@@ -15,6 +15,8 @@
 1. 크롤링 및 데이터 준비 
 <p> requests, bs4라이브러리를 활용하여 고위험군에 속하는 음식(박쥐탕, 뱀탕) 저위험군에 속하는 음식(짜장면, 제육볶음, 김치찌개)을 음식별로 100장씩 수집했다. 이후 수집된 500장의 이미지 데이터를 data폴더에 Train(60%)/validation(20%)/Test(20%) 하위 폴더들에 적재했다. </p>
 <br />
+<a href="https://github.com/Tudou4161/HighRiskFood_Classification/blob/main/HCFC_crawling_data.ipynb">크롤링 소스코드 보러가기</a>
+<br />
 
 2. 모델링
 <p> 데이터의 수가 매우 적은 편이기 때문에, 데이터를 증식시킬 필요가 있었다. 따라서 keras의 ImageDataGenerator모듈을 활용하여 데이터를 증식시켰다.
